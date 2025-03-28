@@ -1,6 +1,3 @@
-A comprehensive arbitrage trading system for monitoring and executing profitable trades between decentralized exchanges (DEXs) across multiple EVM-compatible blockchains. This is the directory structure and files of the application
-
-multi-chain-dex-arbitrage/
 .
 ├── README.md
 ├── api
@@ -24,21 +21,21 @@ multi-chain-dex-arbitrage/
 ├── env.example
 ├── frontend
 │   └── src
-│   ├── app
-│   │   ├── blockchains
-│   │   │   └── page.js
-│   │   ├── dexes
-│   │   │   └── page.js
-│   │   ├── layout.js
-│   │   ├── page.js
-│   │   ├── token-pairs
-│   │   │   └── page.js
-│   │   └── tokens
-│   │   └── page.js
-│   ├── components
-│   ├── lib
-│   │   └── api.js
-│   └── public
+│       ├── app
+│       │   ├── blockchains
+│       │   │   └── page.js
+│       │   ├── dexes
+│       │   │   └── page.js
+│       │   ├── layout.js
+│       │   ├── page.js
+│       │   ├── token-pairs
+│       │   │   └── page.js
+│       │   └── tokens
+│       │       └── page.js
+│       ├── components
+│       ├── lib
+│       │   └── api.js
+│       └── public
 ├── hardhat.config.js
 ├── helpers
 │   ├── README.md
@@ -63,7 +60,7 @@ multi-chain-dex-arbitrage/
 │   ├── readme.md
 │   ├── temp
 │   └── unit
-│   └── blockchainManager.test.js
+│       └── blockchainManager.test.js
 └── tree.txt
 
 23 directories, 41 files

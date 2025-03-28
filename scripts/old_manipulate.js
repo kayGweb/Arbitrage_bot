@@ -5,7 +5,7 @@ const hre = require("hardhat");
 //const logger = log4js.getLogger("application.js");
 
 // -- IMPORT HELPER FUNCTIONS & CONFIG -- //
-const { getTokenAndContract, getPairContract, calculatePrice } = require("../helpers/helpers");
+const { getTokenAndContract, getPairContract, calculatePrice } = require("../helpers/helpers.js");
 const { provider, uFactory, uRouter, sFactory, sRouter } = require("../helpers/initialization.js");
 
 // -- CONFIGURE VALUES HERE -- //
