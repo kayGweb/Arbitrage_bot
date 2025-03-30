@@ -60,12 +60,86 @@ cp .env.example .env
 # Schema is defined in schema.sql
 ```
 
-5. **Build the frontend**
+## Frontend Setup
+
+The project uses Next.js with Shadcn UI components. Follow these steps to set up the frontend:
+
+1. **Navigate to the frontend directory**
 
 ```bash
 cd frontend
-npm run build
-cd ..
+```
+
+2. **Install Tailwind CSS (if not already installed)**
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+3. **Initialize Shadcn UI**
+
+```bash
+npx shadcn@latest init
+```
+
+When prompted during initialization:
+- For styling, select "Default"
+- For CSS variables, choose "Yes"
+- For global CSS path, use `src/app/globals.css`
+- For component location, choose `@/components`
+- For utilities location, use `@/lib/utils`
+- Select a color theme of your choice
+
+4. **Install required UI components**
+
+```bash
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add table
+npx shadcn@latest add badge
+npx shadcn@latest add switch
+npx shadcn@latest add dialog
+npx shadcn@latest add form
+npx shadcn@latest add input
+npx shadcn@latest add select
+npx shadcn@latest add tabs
+```
+
+5. **Configure path aliases**
+
+Ensure your `jsconfig.json` or `tsconfig.json` has the proper path aliases:
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+```
+
+6. **Update Tailwind config**
+
+Make sure your `tailwind.config.js` includes all the necessary paths:
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
+  content: [
+    './pages/**/*.{js,jsx}',
+    './components/**/*.{js,jsx}',
+    './app/**/*.{js,jsx}',
+    './src/**/*.{js,jsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
 ```
 
 ## Running the Application
@@ -173,13 +247,6 @@ npx hardhat run scripts/deploy.js --network ethereum
 
 You can modify the `checkProfitability` function in `multiChainBot.js` to implement custom profitability calculations and trading strategies.
 
-## Security Considerations
-
-- **Private Keys**: Never share your private key or commit it to version control
-- **Testing**: Always test with small amounts before enabling automatic trading
-- **Gas Costs**: Monitor gas costs to ensure they don't eat into profits
-- **Contract Audits**: Consider auditing custom smart contracts before deployment
-
 ## Troubleshooting
 
 ### Common Issues
@@ -188,6 +255,14 @@ You can modify the `checkProfitability` function in `multiChainBot.js` to implem
 - **Insufficient Funds**: Ensure your wallet has funds for gas
 - **No Arbitrage Opportunities**: Check minimum price difference settings
 - **Transaction Failures**: Monitor gas settings and blockchain conditions
+
+### Frontend Build Issues
+
+If you encounter errors about missing UI components:
+1. Make sure you've installed all the required Shadcn UI components listed above
+2. Check that your path aliases are correctly set up in tsconfig.json/jsconfig.json
+3. Ensure your directory structure matches the expected paths
+4. Restart your development server after making changes
 
 ## License
 
