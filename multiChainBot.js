@@ -3,8 +3,8 @@ require('dotenv').config();
 const ethers = require('ethers');
 const Big = require('big.js');
 
-const db = require('./db');
-const blockchainManager = require('./blockchainManager');
+const db = require('./database/db');
+const blockchainManager = require('./helpers/blockchainManager');
 const { getReserves, calculatePrice, simulate } = require('./helpers/helpers');
 
 // Set Big.js configuration for decimal precision

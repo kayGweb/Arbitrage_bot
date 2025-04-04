@@ -7,15 +7,11 @@ const fs = require('fs');
 class Database {
     constructor() {
         this.db = null;
-        this.dbPath = path.join(__dirname, 'data', 'arbitrage.db');
+        this.dbPath = path.join(__dirname, 'arbitrage.db');
     }
 
     async initialize() {
-        // Ensure data directory exists
-        const dataDir = path.join(__dirname, 'data');
-        if (!fs.existsSync(dataDir)) {
-            fs.mkdirSync(dataDir, { recursive: true });
-        }
+        // No need to create data dir anymore since we're using the root database dir
 
         // Open database connection
         this.db = await open({

@@ -1,10 +1,10 @@
 // blockchainManager.js
 const ethers = require('ethers');
-const db = require('./db');
+const db = require('../database/db');
 const IUniswapV2Router02 = require('@uniswap/v2-periphery/build/IUniswapV2Router02.json');
 const IUniswapV2Factory = require('@uniswap/v2-core/build/IUniswapV2Factory.json');
 const IERC20 = require('@openzeppelin/contracts/build/contracts/ERC20.json');
-const IArbitrage = require('./artifacts/contracts/Arbitrage.sol/Arbitrage.json');
+const IArbitrage = require('../artifacts/contracts/Arbitrage.sol/Arbitrage.json');
 
 // Memory cache for providers and contracts
 let providers = {};

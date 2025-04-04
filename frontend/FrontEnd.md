@@ -30,6 +30,7 @@ npx create-next-app@latest .
 ```
 
 When prompted:
+
 - TypeScript: Your preference (Yes recommended)
 - ESLint: Yes
 - Tailwind CSS: Yes
@@ -70,18 +71,13 @@ Update `tailwind.config.js`:
 ```javascript
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
-  content: [
-    './pages/**/*.{js,jsx,ts,tsx}',
-    './components/**/*.{js,jsx,ts,tsx}',
-    './app/**/*.{js,jsx,ts,tsx}',
-    './src/**/*.{js,jsx,ts,tsx}',
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+	darkMode: ["class"],
+	content: ["./pages/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}", "./app/**/*.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
+	theme: {
+		extend: {}
+	},
+	plugins: []
+};
 ```
 
 ## Step 5: Install and Configure Shadcn UI
@@ -95,9 +91,10 @@ npx shadcn@latest init
 ```
 
 When prompted:
+
 - Style: Default
 - Use CSS variables: Yes
-- Global CSS path: `src/app/globals.css` 
+- Global CSS path: `src/app/globals.css`
 - Components location: `@/components`
 - Utility location: `@/lib/utils`
 - Color theme: Your preference (e.g., slate, zinc, neutral, etc.)
@@ -116,6 +113,8 @@ npx shadcn@latest add form
 npx shadcn@latest add input
 npx shadcn@latest add select
 npx shadcn@latest add tabs
+npx shadcn@latest add pagination
+npx shadcn@latest add dropdown-menu
 ```
 
 ## Step 7: Create Directory Structure
@@ -161,12 +160,12 @@ Make sure your `jsconfig.json` (or `tsconfig.json` if using TypeScript) includes
 
 ```json
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	}
 }
 ```
 

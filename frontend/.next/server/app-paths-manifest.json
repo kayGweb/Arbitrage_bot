@@ -2,7 +2,8 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
   "/blockchains/page": "app/blockchains/page.js",
-  "/token-pairs/page": "app/token-pairs/page.js",
+  "/dexes/page": "app/dexes/page.js",
   "/tokens/page": "app/tokens/page.js",
-  "/dexes/page": "app/dexes/page.js"
+  "/token-pairs/page": "app/token-pairs/page.js",
+  "/transactions/page": "app/transactions/page.js"
 }

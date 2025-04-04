@@ -1,8 +1,25 @@
 // api/index.js
 const express = require('express');
 const router = express.Router();
-const db = require('../db');
-const arbitrageBot = require('../multiChainBot');
+const db = require('../database/db');
+// Import multiChainBot and initialize it if needed
+let arbitrageBot;
+try {
+  arbitrageBot = require('../multiChainBot');
+} catch (error) {
+  // Create a more robust mock arbitrageBot if the real one can't be loaded
+  arbitrageBot = {
+    getOpportunities: () => [],
+    addDex: async () => { console.log('Mock: addDex called'); return 1; },
+    addTokenPair: async () => { console.log('Mock: addTokenPair called'); return 1; },
+    startMonitoring: async () => { console.log('Mock: startMonitoring called'); },
+    stop: async () => { console.log('Mock: stop called'); },
+    setExecutionEnabled: async (enabled) => { console.log(`Mock: setExecutionEnabled(${enabled}) called`); return enabled; },
+    initialize: async () => { console.log('Mock: initialize called'); return arbitrageBot; }
+  };
+  console.error('Error loading multiChainBot:', error.message);
+  console.error('Using mock arbitrageBot instead. Some features will be disabled.');
+}
 
 // Initialize and catch errors
 const asyncHandler = fn => (req, res, next) => {

@@ -9,3 +9,13 @@ typechain-types
 cache
 artifacts
 
+#Frontend files
+# .gitignore at root
+frontend/node_modules/
+frontend/dist/
+frontend/*.log
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.next/
+

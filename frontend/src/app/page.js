@@ -98,78 +98,89 @@ export default function Dashboard() {
       <StatsCards stats={dashboardData.stats} />
       
       {/* Charts */}
-      <Tabs defaultValue="profit">
-        <TabsList>
-          <TabsTrigger value="profit">Profit History</TabsTrigger>
-          <TabsTrigger value="volume">Trading Volume</TabsTrigger>
-        </TabsList>
-        <TabsContent value="profit">
-          <Card>
-            <CardHeader>
-              <CardTitle>Profit History</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="h-80">
-                <Line 
-                  data={dashboardData.profitChart} 
-                  options={{
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                      y: {
-                        beginAtZero: true,
-                        title: {
-                          display: true,
-                          text: 'Profit (USD)'
-                        }
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Profit History</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[300px]">
+              <Line 
+                data={dashboardData.profitChart} 
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  scales: {
+                    y: {
+                      beginAtZero: true,
+                      title: {
+                        display: true,
+                        text: 'Profit (USD)'
+                      }
+                    },
+                    x: {
+                      title: {
+                        display: true,
+                        text: 'Date'
                       },
-                      x: {
-                        title: {
-                          display: true,
-                          text: 'Date'
-                        }
+                      ticks: {
+                        maxRotation: 45,
+                        minRotation: 45
                       }
                     }
-                  }}
-                />
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent value="volume">
-          <Card>
-            <CardHeader>
-              <CardTitle>Trading Volume</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="h-80">
-                <Bar 
-                  data={dashboardData.volumeChart}
-                  options={{
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                      y: {
-                        beginAtZero: true,
-                        title: {
-                          display: true,
-                          text: 'Volume (USD)'
-                        }
+                  },
+                  plugins: {
+                    legend: {
+                      position: 'top',
+                    }
+                  }
+                }}
+              />
+            </div>
+          </CardContent>
+        </Card>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle>Trading Volume</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[300px]">
+              <Bar 
+                data={dashboardData.volumeChart}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  scales: {
+                    y: {
+                      beginAtZero: true,
+                      title: {
+                        display: true,
+                        text: 'Volume (USD)'
+                      }
+                    },
+                    x: {
+                      title: {
+                        display: true,
+                        text: 'Date'
                       },
-                      x: {
-                        title: {
-                          display: true,
-                          text: 'Date'
-                        }
+                      ticks: {
+                        maxRotation: 45,
+                        minRotation: 45
                       }
                     }
-                  }}
-                />
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+                  },
+                  plugins: {
+                    legend: {
+                      position: 'top',
+                    }
+                  }
+                }}
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
       
       {/* Recent Opportunities */}
       <Card>
